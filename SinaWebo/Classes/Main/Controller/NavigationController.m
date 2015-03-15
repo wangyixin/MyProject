@@ -26,13 +26,6 @@
 {
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
-    // 设置背景
-//    if (!iOS7) {
-//        [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//        [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background_pushed"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-//        [item setBackgroundImage:[UIImage imageWithName:@"navigationbar_button_background_disable"] forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-//    }
-    
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
@@ -48,12 +41,6 @@
 {
     // 取出appearance对象
     UINavigationBar *navBar = [UINavigationBar appearance];
-    
-    // 设置背景
-//    if (!iOS7) {
-//        [navBar setBackgroundImage:[UIImage imageWithName:@"navigationbar_background"] forBarMetrics:UIBarMetricsDefault];
-//        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
-//    }
     
     // 设置标题属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];

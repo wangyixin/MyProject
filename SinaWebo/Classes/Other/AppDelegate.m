@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
+#import "NewFeatureViewController.h"
+#import "OAuthViewController.h"
+#import "Account.h"
+#import "ChooseControllerUtil.h"
+#import "UserPerfenceUtil.h"
 
 @interface AppDelegate ()
 
@@ -19,11 +24,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //显示状态栏
     application.statusBarHidden=NO;
-    
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    //设置窗口的根控制器
-    self.window.rootViewController=[[TabBarViewController alloc]init];
     [self.window makeKeyAndVisible];
+    
+    //先判断有无存储账号信息
+    Account *account=[UserPerfenceUtil account];
+    
+    if (account) {
+        [ChooseControllerUtil chooseRootController];
+    }else{
+        self.window.rootViewController=[[OAuthViewController alloc]init];
+    }
+    
+    
     return YES;
 }
 
