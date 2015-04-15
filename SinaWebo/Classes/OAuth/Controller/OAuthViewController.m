@@ -13,6 +13,8 @@
 #import "NewFeatureViewController.h"
 #import "ChooseControllerUtil.h"
 #import "UserPerfenceUtil.h"
+#import "HttpUtil.h"
+#import "OAuthService.h"
 
 @interface OAuthViewController ()<UIWebViewDelegate>
 
@@ -24,7 +26,7 @@
     [super viewDidLoad];
     UIWebView *webView=[[UIWebView alloc]init];
     webView.frame=self.view.bounds;
-    NSURL *url=[NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=482649692&redirect_uri=http://open.weibo.com"];
+    NSURL *url=[NSURL URLWithString:LoginURL];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
     webView.delegate=self;
@@ -42,6 +44,7 @@
         NSString *code=[urlStr substringFromIndex:loaction];
         //发送网络请求
         [self accessTokenWithCode:code];
+        return NO;
     }
     return YES;
 }
@@ -51,23 +54,20 @@
  */
 
 -(void)accessTokenWithCode:(NSString *)code{
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    manager.responseSerializer=[AFJSONResponseSerializer serializer];
-    NSMutableDictionary *parames=[NSMutableDictionary dictionary];
-    parames[@"client_id"]=@"482649692";
-    parames[@"client_secret"]=@"8e29395a0d0a4ac49d137e1e991b20ff";
-    parames[@"grant_type"]=@"authorization_code";
-    parames[@"code"]=code;
-    parames[@"redirect_uri"]=@"http://open.weibo.com";
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parames success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        Account *account=[Account accountWithDict:responseObject];
+    OAuthRequest *requst=[OAuthRequest request];
+    requst.client_id=AppKey;
+    requst.client_secret=AppSecret;
+    requst.grant_type=@"authorization_code";
+    requst.redirect_uri=RedirectURI;
+    requst.code=code;
+    [OAuthService getOAuthDataWithRequest:requst success:^(Account *response) {
+        Account *account=response;
         //存档
         [UserPerfenceUtil saveAccount:account];
         
         //设置要要跳转的控制器
         [ChooseControllerUtil chooseRootController];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         
     }];
 }

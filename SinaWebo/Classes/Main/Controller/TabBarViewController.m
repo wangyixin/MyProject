@@ -13,6 +13,7 @@
 #import "MeViewController.h"
 #import "TabBarView.h"
 #import "NavigationController.h"
+#import "ComposeViewController.h"
 
 @interface TabBarViewController ()<TabBarViewDelegage>
 @property (nonatomic, weak) TabBarView *customTabBar;
@@ -49,6 +50,7 @@
     //设置代理
     customTabBar.delegate=self;
 }
+
 /**
  *  TabBar的代理切换控制器
  *
@@ -56,8 +58,17 @@
  *  @param from   当前的控制器
  *  @param to     要跳转的控制器
  */
--(void)tabBar:(TabBarView *)tabBar didSelectedButtonFrom:(int)from to:(int)to{
+-(void)tabBar:(TabBarView *)tabBar didSelectedButtonFrom:(long)from to:(long)to{
     self.selectedIndex=to;
+}
+
+/**
+ *  TabBar的代理,监听+按钮的点击
+
+ */
+-(void)tabBarDidClickedPlusButton:(TabBarView *)tabBar{
+    NavigationController *nc=[[NavigationController alloc]initWithRootViewController:[[ComposeViewController alloc]init]];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 /**

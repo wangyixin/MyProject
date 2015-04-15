@@ -18,4 +18,5 @@
  *  @return
  */
 -(CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+-(CGSize)sizeWithFont:(UIFont *)font;
 @end

@@ -10,8 +10,7 @@
 
 @implementation NavigationController
 
-+ (void)initialize
-{
++ (void)initialize{
     // 1.设置导航栏主题
     [self setupNavBarTheme];
     
@@ -22,30 +21,33 @@
 /**
  *  设置导航栏按钮主题
  */
-+ (void)setupBarButtonItemTheme
-{
++ (void)setupBarButtonItemTheme{
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
-    // 设置文字属性
+    // 设置默认文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:NavigationTextSize];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateHighlighted];
+    
+    // 设置不能点击时文字属性
+    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
+    disableTextAttrs[NSForegroundColorAttributeName] =  [UIColor grayColor];
+    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
 
 /**
  *  设置导航栏主题
  */
-+ (void)setupNavBarTheme
-{
++ (void)setupNavBarTheme{
     // 取出appearance对象
     UINavigationBar *navBar = [UINavigationBar appearance];
     
     // 设置标题属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
-    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:NavigationCenterTextSize];
     [navBar setTitleTextAttributes:textAttrs];
 }
 

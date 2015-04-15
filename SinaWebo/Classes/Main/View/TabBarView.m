@@ -48,10 +48,24 @@
     [centerBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted_os7"] forState:UIControlStateSelected];
     centerBtn.bounds=CGRectMake(0, 0, centerBtn.currentBackgroundImage.size.width, centerBtn.currentBackgroundImage.size.height);
     
+    //添加点击事件
+    [centerBtn addTarget:self action:@selector(plusButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
     self.centerButton=centerBtn;
     [self addSubview:centerBtn];
     
 }
+
+/**
+ *  发微博的点击事件
+ */
+
+-(void)plusButtonClick{
+    if ([self.delegate respondsToSelector:@selector(tabBarDidClickedPlusButton:)]) {
+        [self.delegate tabBarDidClickedPlusButton:self];
+    }
+}
+
 
 /**
  *  设置TabBar的背景

@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  SinaWebo
+//
+//  Created by 亦心 on 15/4/6.
+//  Copyright (c) 2015年 亦心. All rights reserved.
+//
+
+#ifndef SinaWebo_PrefixHeader_pch
+#define SinaWebo_PrefixHeader_pch
+
+#import "CommonUtil.h"
+
+#endif

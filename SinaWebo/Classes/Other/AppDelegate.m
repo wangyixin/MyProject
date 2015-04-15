@@ -13,6 +13,7 @@
 #import "Account.h"
 #import "ChooseControllerUtil.h"
 #import "UserPerfenceUtil.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -60,6 +61,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    //停止下载图片
+    [[SDWebImageManager sharedManager]cancelAll];
+    //清除内存中的图片
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
 }
 
 @end

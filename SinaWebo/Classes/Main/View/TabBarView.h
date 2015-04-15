@@ -12,7 +12,9 @@
 @protocol TabBarViewDelegage <NSObject>
 
 @optional
-- (void)tabBar:(TabBarView *)tabBar didSelectedButtonFrom:(int)from to:(int)to;
+- (void)tabBar:(TabBarView *)tabBar didSelectedButtonFrom:(long)from to:(long)to;
+
+-(void)tabBarDidClickedPlusButton:(TabBarView *)tabBar;
 @end
 
 @interface TabBarView : UIView

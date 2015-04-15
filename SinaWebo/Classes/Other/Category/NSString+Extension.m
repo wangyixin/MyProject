@@ -14,4 +14,9 @@
     NSDictionary *attr=@{NSFontAttributeName:font};
     return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil].size;
 }
+
+-(CGSize)sizeWithFont:(UIFont *)font{
+    NSDictionary *attr=@{NSFontAttributeName:font};
+    return [self boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil].size;
+}
 @end
