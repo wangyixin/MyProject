@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D1EBD547-F088-4F46-A838-08E5B08448C1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SinaWebo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D3B37AAB92EFC3A69E32200F63F9DE5D50B04576</key>
+		<string>https://github.com/wangyixin/MyProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SinaWebo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D3B37AAB92EFC3A69E32200F63F9DE5D50B04576</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wangyixin/MyProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D3B37AAB92EFC3A69E32200F63F9DE5D50B04576</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D3B37AAB92EFC3A69E32200F63F9DE5D50B04576</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SinaWebo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
